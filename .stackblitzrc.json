@@ -1,0 +1,34 @@
+{
+  "tasks": {
+    "build": [
+      "gcloud builds submit --tag gcr.io/stackblitz/prio-ng-universal"
+    ],
+    "deploy": [
+      "gcloud beta run deploy prio-ng-universal --image gcr.io/stackblitz/prio-ng-universal --region us-east1 --allow-unauthenticated"
+    ],
+    "start": [
+      "sb run -t $STACKBLITZ_PROJECT_SOURCE"
+    ],
+    "dev": [
+      "ng serve --port 3000 --host 0.0.0.0 --disable-host-check --progress false"
+    ],
+    "prepare": [
+      "npm install -g @angular/cli"
+    ]
+  },
+  "images": {
+    "base": {
+      "name": "ng-universal-base",
+      "args": {
+        "build": ["-f", "Dockerfile.base"]
+      }
+    },
+    "server": {
+      "name": "ng-universal-server",
+      "args": {
+        "build": ["--cache-from", "ng-universal-base:latest"],
+        "run": ["-p", "18080:8080", "-e", "PORT=8080"]
+      }
+    }
+  }
+}
