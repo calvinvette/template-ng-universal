@@ -1,12 +1,15 @@
 {
   "tasks": {
     "build": [
+      "gcloud config set project $GCP_PROJECT",
       "gcloud builds submit --tag gcr.io/stackblitz/prio-${STACKBLITZ_PROJECT_NAME}"
     ],
     "deploy": [
+      "gcloud config set project $GCP_PROJECT",
       "gcloud beta run deploy prio-${STACKBLITZ_PROJECT_NAME} --image gcr.io/stackblitz/prio-${STACKBLITZ_PROJECT_NAME} --region us-central1 --allow-unauthenticated"
     ],
     "initialDeploy": [
+      "gcloud config set project $GCP_PROJECT",
       "gcloud beta run deploy prio-${STACKBLITZ_PROJECT_NAME} --image gcr.io/stackblitz/template-ng-universal --region us-central1 --allow-unauthenticated",
       "curl https://prio-${STACKBLITZ_PROJECT_NAME}-447bp7et6a-uc.a.run.app/ &"
     ],
