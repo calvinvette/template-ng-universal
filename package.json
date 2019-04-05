@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:watch": "npx ng build ng-universal --prod --watch true",
+    "build:watch": "npx ng build ng-universal --prod --watch true --progress false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
