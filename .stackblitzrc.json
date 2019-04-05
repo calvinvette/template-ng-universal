@@ -1,6 +1,8 @@
 {
   "tasks": {
     "build": [
+      "git config --global user.email $GIT_AUTHOR_EMAIL",
+      "git config --global user.name $GIT_AUTHOR_EMAIL",
       "gcloud config set project $GCP_PROJECT",
       "gcloud builds submit --tag gcr.io/stackblitz/prio-${STACKBLITZ_PROJECT_NAME}"
     ],
