@@ -22,19 +22,6 @@
   "images": {
     "template": {
       "name": "gcr.io/stackblitz/template-ng-universal"
-    },
-    "base": {
-      "name": "ng-universal-base",
-      "args": {
-        "build": ["-f", "Dockerfile.base"]
-      }
-    },
-    "server": {
-      "name": "ng-universal-server",
-      "args": {
-        "build": ["--cache-from", "ng-universal-base:latest"],
-        "run": ["-p", "18080:8080", "-e", "PORT=8080"]
-      }
     }
   }
 }

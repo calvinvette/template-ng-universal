@@ -1,14 +1,9 @@
-FROM node:11-alpine
+FROM node:10-alpine
 
-WORKDIR /workspace
+RUN mkdir -p /app/dist
+WORKDIR /app
+COPY ./dist /app/dist
 
-COPY package.json yarn.lock /workspace/
+EXPOSE 8080
 
-RUN yarn install
-
-COPY . .
-
-RUN yarn build:ssr
-
-CMD ["yarn", "serve:ssr"]
-
+CMD [ "node", "dist/server" ]
