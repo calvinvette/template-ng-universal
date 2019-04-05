@@ -17,6 +17,9 @@
     ],
     "prepare": [
       "npm install -g @angular/cli"
+    ],
+    "build-watch": [
+      "npx ng build --prod --watch"
     ]
   },
   "images": {
