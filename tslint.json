@@ -1,14 +1,27 @@
 {
   "extends": "tslint:recommended",
-  "rulesDirectory": [
-    "codelyzer"
-  ],
   "rules": {
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
       "severity": "warn"
     },
+    "banana-in-box": true,
+    "component-class-suffix": true,
+    "contextual-life-cycle": true,
+    "directive-class-suffix": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -61,15 +74,19 @@
       "single"
     ],
     "trailing-comma": false,
-    "no-output-on-prefix": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
+    "no-conflicting-life-cycle-hooks": true,
     "no-input-rename": true,
+    "no-output-named-after-standard-event": true,
+    "no-output-on-prefix": true,
     "no-output-rename": true,
+    "templates-no-negated-async": true,
+    "use-host-property-decorator": true,
+    "use-input-property-decorator": true,
     "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true
-  }
+    "use-output-property-decorator": true,
+    "use-pipe-transform-interface": true
+  },
+  "rulesDirectory": [
+    "codelyzer"
+  ]
 }
